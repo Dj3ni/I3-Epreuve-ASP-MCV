@@ -59,6 +59,7 @@
     <Folder Include="Tables" />
     <Folder Include="Functions" />
     <Folder Include="StockedProcedures" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\User.sql" />
@@ -72,6 +73,11 @@
     <Build Include="StockedProcedures\SP_User_Update.sql" />
     <Build Include="StockedProcedures\SP_User_GetAll.sql" />
     <Build Include="StockedProcedures\SP_User_GetById.sql" />
+    <Build Include="StockedProcedures\SP_Boardgame_Insert.sql" />
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+    <Build Include="StockedProcedures\SP_Boardgame_Update.sql" />
+    <Build Include="StockedProcedures\SP_Boardgame_GetAll.sql" />
+    <Build Include="StockedProcedures\SP_Boardgame_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.publish.xml" />
