@@ -14,8 +14,7 @@ Post-Deployment Script Template
 Declare @insertedUserIds Table(user_id uniqueidentifier);
 Declare @insertedGameIds Table(game_id int);
 Declare @insertedLibrary Table(library_id int);
-
-
+Declare @insertedLending Table(lending_id int);
 
 /* Insert 5 users*/
 
@@ -245,3 +244,26 @@ Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId4, @tagId4)
 
 /* Insert into Lending */
 
+--1. 
+Insert into @insertedLending(lending_id)
+Exec SP_Lending_Insert
+@game_copy_id = @LibId1,
+@owner_id = @UserId1,
+@borrower_id = @UserId2,
+@lending_Date = '2025-03-08'
+
+--2. 
+Insert into @insertedLending(lending_id)
+Exec SP_Lending_Insert
+@game_copy_id = @LibId2,
+@owner_id = @UserId1,
+@borrower_id = @UserId3,
+@lending_Date = '2025-03-08'
+
+--3. 
+Insert into @insertedLending(lending_id)
+Exec SP_Lending_Insert
+@game_copy_id = @LibId4,
+@owner_id = @UserId2,
+@borrower_id = @UserId4,
+@lending_Date = '2025-03-08'
