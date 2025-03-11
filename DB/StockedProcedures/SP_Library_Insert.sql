@@ -9,6 +9,6 @@ Insert into [Library]
 				([State],[Game_Id],[User_Id])
 
 		Output [inserted].[Game_Copy_Id]
-		Values (@state, @user_id,@game_id)
+		Values (@state, @game_id, @user_id)
 
 End
