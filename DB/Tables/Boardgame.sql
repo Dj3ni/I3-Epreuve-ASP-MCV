@@ -9,7 +9,7 @@
 	[Max_Players] int Not Null,
 	[Duration] int null,
 	[Registration_Date] datetime not null Default GetDate(),
-	[Register] int not null
+	[Register] UniqueIdentifier not null
 	Constraint PK_Game_Id Primary Key([Game_Id]),
 	Constraint Check_Age_Values Check([AgeMin] <= [AgeMax]),
 	Constraint Check_Nbr_Players Check([Min_Players] <= [Max_Players]),

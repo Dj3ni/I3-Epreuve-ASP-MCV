@@ -2,7 +2,7 @@
 (
 	[Game_Copy_Id] int Not Null Identity(1,1),
 	[State] nvarchar(50) ,
-	[User_Id] int not null,
+	[User_Id] UniqueIdentifier not null,
 	[Game_Id] int not null,
 	Constraint PK_Game_Copy Primary Key([Game_Copy_ID]),
 	Constraint Ck_State Check ([State] in ('New','Damaged','Incomplete')),

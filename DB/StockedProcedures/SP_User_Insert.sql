@@ -1,13 +1,13 @@
 ﻿CREATE PROCEDURE [dbo].[SP_User_Insert]
-@first_name NVARCHAR(64),
-	@last_name NVARCHAR(64),
 	@email NVARCHAR(320),
-	@password NVARCHAR(32)
+	@pseudo NVarchar,
+	@password Varbinary(150),
+	@subscription_date dateTime null
 AS
 BEGIN
 	DECLARE @salt UNIQUEIDENTIFIER
 	SET @salt = NEWID()
-	INSERT INTO [User] ([Email],[Pseudo],[Password],[Salt])
+	INSERT INTO [User] ([Email],[Pseudo],[Subscription_Date],[Password],[Salt])
 	OUTPUT [inserted].[User_Id]
-	VALUES (@first_name, @last_name, @email, [dbo].[SF_SaltAndHash](@password, @salt), @salt)
+	VALUES (@email,@pseudo,@subscription_date,[dbo].[SF_SaltAndHash](@password, @salt), @salt)
 END
