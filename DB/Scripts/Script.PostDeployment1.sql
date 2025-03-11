@@ -140,29 +140,6 @@ declare @GameId4 int;
 Select @GameId4 = game_id from @insertedGameIds
 Delete From @insertedGameIds
 
-/* Insert tags */
-
--- 1.
-Exec SP_Tag_Insert @tag_id = 'Dice'
--- 2.
-Exec SP_Tag_Insert @tag_id = 'Roll and Write'
--- 3.
-Exec SP_Tag_Insert @tag_id = 'Cards'
--- 4.
-Exec SP_Tag_Insert @tag_id = 'Disney'
--- 5.
-Exec SP_Tag_Insert @tag_id = 'Board'
--- 6.
-Exec SP_Tag_Insert @tag_id = 'Coop'
--- 7.
-Exec SP_Tag_Insert @tag_id = 'Competitive'
--- 8.
-Exec SP_Tag_Insert @tag_id = 'Initiate'
--- 9.
-Exec SP_Tag_Insert @tag_id = 'Expert'
--- 10.
-Exec SP_Tag_Insert @tag_id = 'Money'
-
 /* Insert Library */
 
 -- 1.
@@ -219,3 +196,52 @@ Exec SP_Library_Insert
 declare @LibId5 int;
 Select @LibId5 = library_id from @insertedLibrary
 Delete From @insertedLibrary
+
+/* Insert tags */
+
+-- 1.
+Exec SP_Tag_Insert @tag_id = 'Dice'
+Declare @tagId1 nvarchar(150) = 'Dice'
+-- 2.
+Exec SP_Tag_Insert @tag_id = 'Roll and Write'
+Declare @tagId2 nvarchar(150) = 'Roll and Write'
+-- 3.
+Exec SP_Tag_Insert @tag_id = 'Cards'
+Declare @tagId3 nvarchar(150) = 'Cards'
+-- 4.
+Exec SP_Tag_Insert @tag_id = 'Disney'
+Declare @tagId4 nvarchar(150) = 'Disney'
+-- 5.
+Exec SP_Tag_Insert @tag_id = 'Board'
+Declare @tagId5 nvarchar(150) = 'Board'
+-- 6.
+Exec SP_Tag_Insert @tag_id = 'Coop'
+Declare @tagId6 nvarchar(150) = 'Coop'
+-- 7.
+Exec SP_Tag_Insert @tag_id = 'Competitive'
+Declare @tagId7 nvarchar(150) = 'Competitive'
+-- 8.
+Exec SP_Tag_Insert @tag_id = 'Initiate'
+Declare @tagId8 nvarchar(150) = 'Initiate'
+-- 9.
+Exec SP_Tag_Insert @tag_id = 'Expert'
+Declare @tagId9 nvarchar(150) = 'Expert'
+-- 10.
+Exec SP_Tag_Insert @tag_id = 'Money'
+Declare @tagId10 nvarchar(150) = 'Money'
+
+/* Insert GameTags */
+
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId1, @tagId10)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId1, @tagId5)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId2, @tagId10)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId2, @tagId1)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId2, @tagId4)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId3, @tagId5)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId3, @tagId6)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId4, @tagId6)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId4, @tagId7)
+Insert Into GameTag(Game_Id,Tag_Id) Values (@GameId4, @tagId4)
+
+/* Insert into Lending */
+
