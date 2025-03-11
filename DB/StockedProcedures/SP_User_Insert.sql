@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[SP_User_Insert]
 	@email NVARCHAR(320),
 	@pseudo NVarchar,
-	@password Varbinary(150),
-	@subscription_date dateTime null
+	@subscription_date dateTime null,
+	@password Varbinary(150)
 AS
 BEGIN
 	DECLARE @salt UNIQUEIDENTIFIER

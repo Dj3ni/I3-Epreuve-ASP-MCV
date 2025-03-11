@@ -70,4 +70,7 @@
     <Build Include="Functions\SaltandHash.sql" />
     <Build Include="StockedProcedures\SP_User_Insert.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DB.publish.xml" />
+  </ItemGroup>
 </Project>
