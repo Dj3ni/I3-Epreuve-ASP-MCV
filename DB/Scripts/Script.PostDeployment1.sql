@@ -168,3 +168,54 @@ Exec SP_Tag_Insert @tag_id = 'Money'
 -- 1.
 Insert into @insertedLibrary(library_id)
 Exec SP_Library_Insert
+@user_id = @UserId1,
+@game_id = @GameId1,
+@state = 'New'
+
+declare @LibId1 int;
+Select @LibId1 = library_id from @insertedLibrary
+Delete From @insertedLibrary
+
+-- 2.
+Insert into @insertedLibrary(library_id)
+Exec SP_Library_Insert
+@user_id = @UserId1,
+@game_id = @GameId2,
+@state = 'Incomplete'
+
+declare @LibId2 int;
+Select @LibId2 = library_id from @insertedLibrary
+Delete From @insertedLibrary
+
+-- 3.
+Insert into @insertedLibrary(library_id)
+Exec SP_Library_Insert
+@user_id = @UserId2,
+@game_id = @GameId3,
+@state = 'Damaged'
+
+declare @LibId3 int;
+Select @LibId3 = library_id from @insertedLibrary
+Delete From @insertedLibrary
+
+-- 4.
+Insert into @insertedLibrary(library_id)
+Exec SP_Library_Insert
+@user_id = @UserId3,
+@game_id = @GameId4,
+@state = 'New'
+
+declare @LibId4 int;
+Select @LibId4 = library_id from @insertedLibrary
+Delete From @insertedLibrary
+
+-- 5.
+Insert into @insertedLibrary(library_id)
+Exec SP_Library_Insert
+@user_id = @UserId4,
+@game_id = @GameId4,
+@state = 'New'
+
+declare @LibId5 int;
+Select @LibId5 = library_id from @insertedLibrary
+Delete From @insertedLibrary
