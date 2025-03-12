@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BLL.Entities
+{
+	public class Boardgame
+	{
+		public int Game_id { get; set; }
+		public string Game_Title { get; set; }
+		public string Game_Description { get; set; }
+
+		public int MinAge { get; set; }
+		public int MaxAge { get; set; }
+		public int MinPlayers { get; set; }
+		public int MaxPlayers { get; set; }
+		public int? Duration { get; set; }
+		public Guid Registerer { get; set; }
+
+		public Boardgame(int game_id, string game_Title, string game_Description, int minAge, int maxAge, int minPlayers, int maxPlayers, int? duration, Guid registerer)
+		{
+			Game_id = game_id;
+			Game_Title = game_Title;
+			Game_Description = game_Description;
+			MinAge = minAge;
+			MaxAge = maxAge;
+			MinPlayers = minPlayers;
+			MaxPlayers = maxPlayers;
+			Duration = duration;
+			Registerer = registerer;
+		}
+
+	}
+}

@@ -85,7 +85,7 @@ Exec SP_Boardgame_Insert
 @minPlayer = 2,
 @maxPlayer = 8,
 @duration = 60,
-@register = @UserId5
+@registerer = @UserId5
 
 declare @GameId1 int;
 Select @GameId1 = game_id from @insertedGameIds
@@ -101,7 +101,7 @@ Exec SP_Boardgame_Insert
 @minPlayer = 2,
 @maxPlayer = 5,
 @duration = 45,
-@register = @UserId1
+@registerer = @UserId1
 
 declare @GameId2 int;
 Select @GameId2 = game_id from @insertedGameIds
@@ -117,7 +117,7 @@ Exec SP_Boardgame_Insert
 @minPlayer = 2,
 @maxPlayer = 4,
 @duration = 60,
-@register = @UserId3
+@registerer = @UserId3
 
 declare @GameId3 int;
 Select @GameId3 = game_id from @insertedGameIds
@@ -133,7 +133,7 @@ Exec SP_Boardgame_Insert
 @minPlayer =2,
 @maxPlayer = 2,
 @duration = 15,
-@register = @USerId4
+@registerer = @USerId4
 
 declare @GameId4 int;
 Select @GameId4 = game_id from @insertedGameIds

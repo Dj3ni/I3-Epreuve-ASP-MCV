@@ -45,5 +45,50 @@ namespace BLL.Mappers
 				Deactivation_Date = user.Deactivation_Date
 			};
 		}
+
+		/// <summary>
+		/// Convert DAL Boardgame to BLL Boardgame
+		/// </summary>
+		/// <param name="game">DAL Boardgame</param>
+		/// <returns>BLL Boardgame</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static Boardgame ToBLL(this DAL.Entities.Boardgame game)
+		{
+			if(game is null) throw new ArgumentNullException( nameof(game));
+			return new Boardgame(
+				game.Game_id,
+				game.Game_Title,
+				game.Game_Description,
+				game.MinAge,
+				game.MaxAge,
+				game.MinPlayers,
+				game.MaxPlayers,
+				game.Duration,
+				game.Registerer
+				);
+		}
+
+		/// <summary>
+		/// Convert BLL Boardgame to DAL Boardgame
+		/// </summary>
+		/// <param name="game">BLL Boardgame</param>
+		/// <returns>DAL Boardgame</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static DAL.Entities.Boardgame ToDAL(this Boardgame game)
+		{
+			if (game is null) throw new ArgumentNullException(nameof(game));
+			return new DAL.Entities.Boardgame()
+			{
+				Game_id = game.Game_id,
+				Game_Title = game.Game_Title,
+				Game_Description = game.Game_Description,
+				MinAge = game.MinAge,
+				MaxAge = game.MaxAge,
+				MinPlayers = game.MinPlayers,
+				MaxPlayers = game.MaxPlayers,
+				Duration = game.Duration,
+				Registerer = game.Registerer
+			};
+		}
 	}
 }
