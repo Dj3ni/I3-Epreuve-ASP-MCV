@@ -23,8 +23,8 @@ Insert into @insertedUserIds(user_id)
 Exec SP_User_Insert
 @email = 't.riv@games.be',
 @pseudo = 'Théo',
-@password = 'Test1234=',
-@subscription_date = null
+@password = 'Test1234='
+--@subscription_date = null
 declare @UserId1 uniqueidentifier;
 select @UserId1 = user_id from @insertedUserIds
 DELETE FROM @InsertedUserIds;
@@ -34,8 +34,8 @@ Insert into @insertedUserIds(user_id)
 Exec SP_User_Insert
 @email = 'a.boccara@games.be',
 @pseudo = 'Anth0',
-@password = 'Test1234=',
-@subscription_date = null
+@password = 'Test1234='
+--@subscription_date = null
 declare @UserId2 uniqueidentifier;
 select @UserId2 = user_id from @insertedUserIds
 DELETE FROM @InsertedUserIds;
@@ -45,8 +45,8 @@ Insert into @insertedUserIds(user_id)
 Exec SP_User_Insert
 @email = 'b.cathala@games.be',
 @pseudo = 'NoNo',
-@password = 'Test1234=',
-@subscription_date = null
+@password = 'Test1234='
+--@subscription_date = null
 declare @UserId3 uniqueidentifier;
 select @UserId3 = user_id from @insertedUserIds
 DELETE FROM @InsertedUserIds;
@@ -56,8 +56,8 @@ Insert into @insertedUserIds(user_id)
 Exec SP_User_Insert
 @email = 'c.lebrat@games.be',
 @pseudo = 'CoCO',
-@password = 'Test1234=',
-@subscription_date = null
+@password = 'Test1234='
+--@subscription_date = null
 declare @UserId4 uniqueidentifier;
 select @UserId4 = user_id from @insertedUserIds
 DELETE FROM @InsertedUserIds;
@@ -67,8 +67,8 @@ Insert into @insertedUserIds(user_id)
 Exec SP_User_Insert
 @email = 'b.faidutti@games.be',
 @pseudo = 'Master of Citadelles',
-@password = 'Test1234=',
-@subscription_date = null
+@password = 'Test1234='
+--@subscription_date = null
 declare @UserId5 uniqueidentifier;
 select @UserId5 = user_id from @insertedUserIds
 DELETE FROM @InsertedUserIds;

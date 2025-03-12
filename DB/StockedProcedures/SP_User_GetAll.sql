@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_User_GetAll]
+﻿CREATE PROCEDURE [dbo].[SP_User_GetAllActive]
 
 AS
 BEGIN
@@ -10,4 +10,6 @@ BEGIN
 		[Deactivation_date]
 
 	FROM [User]
+
+	Where [Deactivation_Date] is null
 END
