@@ -27,6 +27,12 @@ namespace BLL.Mappers
 				);
 		}
 
+		/// <summary>
+		/// Convert BLL User to DAL User
+		/// </summary>
+		/// <param name="user">BLL User</param>
+		/// <returns>DAL User</returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		public static DAL.Entities.User ToDAL(this User user)
 		{
 			if (user is null) throw new ArgumentNullException(nameof(user));
