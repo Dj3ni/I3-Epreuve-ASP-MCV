@@ -8,13 +8,14 @@ namespace DAL.Entities
 {
 	public class Boardgame
 	{
+		public int Game_id { get; set; }
 		public string Game_Title { get; set; }
 		public string Game_Description { get; set; }
 
-		public short MinAge {  get; set; }
-		public short MaxAge { get; set; }
-		public short MinPlayers { get; set; }
-		public short MaxPlayers { get; set; }
+		public int MinAge {  get; set; }
+		public int MaxAge { get; set; }
+		public int MinPlayers { get; set; }
+		public int MaxPlayers { get; set; }
 		public int? Duration { get; set; }
 		public Guid Registerer {  get; set; }
 	}

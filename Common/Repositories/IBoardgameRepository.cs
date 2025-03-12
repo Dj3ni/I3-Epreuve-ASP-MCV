@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Repositories
 {
-	public interface IBoardgameRepository<TGame> : IInsertRepository<TGame, int>
+	public interface IBoardgameRepository<TGame> : IInsertRepository<TGame, int>, IGetRepository<TGame,int>
 	{
 	}
 }
