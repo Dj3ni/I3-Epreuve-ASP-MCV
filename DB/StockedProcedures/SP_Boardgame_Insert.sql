@@ -6,7 +6,7 @@
 	@minPlayer int,
 	@maxPlayer int,
 	@duration int null,
-	@register uniqueidentifier
+	@registerer uniqueidentifier
 AS
 BEGIN
 	Declare @registration_date datetime;
@@ -21,7 +21,7 @@ BEGIN
 		[Max_Players],
 		[Duration],
 		[Registration_Date],
-		[Register])
+		[Registerer])
 
 	Output [Inserted].[Game_Id]
 
@@ -34,5 +34,5 @@ BEGIN
 		@maxPlayer,
 		@duration,
 		@registration_date,
-		@register)
+		@registerer)
 END

@@ -9,10 +9,10 @@
 	[Max_Players] int Not Null,
 	[Duration] int null,
 	[Registration_Date] datetime not null Default GetDate(),
-	[Register] UniqueIdentifier not null
+	[Registerer] UniqueIdentifier not null
 	Constraint PK_Game_Id Primary Key([Game_Id]),
 	Constraint Uk_Title Unique([Game_title]),
 	Constraint Ck_Age_Values Check([AgeMin] <= [AgeMax]),
 	Constraint Ck_Nbr_Players Check([Min_Players] <= [Max_Players]),
-	Constraint FK_User_Register Foreign Key([Register]) references [User]([User_Id])
+	Constraint FK_User_Register Foreign Key([Registerer]) references [User]([User_Id])
 )

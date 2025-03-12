@@ -92,4 +92,7 @@
   <ItemGroup>
     <None Include="DB.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB.refactorlog" />
+  </ItemGroup>
 </Project>

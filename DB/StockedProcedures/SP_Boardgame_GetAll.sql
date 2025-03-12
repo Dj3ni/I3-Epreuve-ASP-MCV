@@ -10,8 +10,7 @@ Begin
 		[Min_Players],
 		[Max_Players],
 		[Duration],
-		[Registration_Date],
-		[Register],
+		[Registerer],
 		[Registration_date]
 
 	FROM [Boardgame]
