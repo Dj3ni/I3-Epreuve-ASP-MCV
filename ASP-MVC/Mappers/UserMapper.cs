@@ -104,7 +104,7 @@ namespace ASP_MVC.Mappers
 				User_Id = user.User_Id,
 				Pseudo = user.Pseudo,
 				Email = user.Email,
-				Deactivation_Date = user.Deactivation_Date,
+				//Deactivation_Date = user.Deactivation_Date,
 			};
 		}
 
@@ -119,8 +119,8 @@ namespace ASP_MVC.Mappers
 			if (form is null) throw new ArgumentNullException(nameof(form));
 			return new User(
 					Guid.Empty,
-					form.Pseudo,
-					form.Email,
+					"",
+					"",
 					"",
 					DateTime.Now
 				);

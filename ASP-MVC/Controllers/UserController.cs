@@ -29,7 +29,7 @@ namespace ASP_MVC.Controllers
 		public ActionResult Details(Guid id)
 		{
 			UserDetails model = _userService.GetById(id).ToDetails();
-			return View();
+			return View(model);
 		}
 
 		// GET: UserController/Create

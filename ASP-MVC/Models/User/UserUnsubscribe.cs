@@ -14,11 +14,11 @@ namespace ASP_MVC.Models.User
 		[DisplayName("Email")]
 		public string Email { get; set; }
 
-		[ScaffoldColumn(false)]
-		public DateTime? Deactivation_Date { get; set; }
+		//[ScaffoldColumn(false)]
+		//public DateTime? Deactivation_Date { get; set; }
 
-		[ScaffoldColumn(false)]
-		public string Password { get; set; }
+		//[ScaffoldColumn(false)]
+		//public string Password { get; set; }
 
 	}
 }

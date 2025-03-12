@@ -21,8 +21,8 @@ namespace BLL.Mappers
 			return new User(
 					user.User_Id,
 					user.Pseudo,
-					user.Password,
 					user.Email,
+					user.Password,
 					user.Deactivation_Date
 				);
 		}

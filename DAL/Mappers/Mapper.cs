@@ -18,7 +18,7 @@ namespace DAL.Mappers
 				User_Id = (Guid)record[nameof(User.User_Id)],
 				Pseudo = (string)record[nameof(User.Pseudo)],
 				Email = (string)record[nameof(User.Email)],
-				Password = (string)record[nameof(User.Password)],
+				Password = "********",
 				Deactivation_Date = (record[nameof(User.Deactivation_Date)] is DBNull)? null : (DateTime)record[nameof(User.Deactivation_Date)]
 			};
 		}

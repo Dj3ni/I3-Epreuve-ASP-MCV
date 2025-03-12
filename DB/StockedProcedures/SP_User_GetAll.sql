@@ -5,8 +5,8 @@ BEGIN
 	Select 
 		[User_Id],
 		[Pseudo],
+		[Email],
 		[Password],
-		[Subscription_Date],
 		[Deactivation_date]
 
 	FROM [User]
