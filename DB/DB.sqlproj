@@ -85,6 +85,8 @@
     <Build Include="StockedProcedures\SP_Library_Delete.sql" />
     <Build Include="StockedProcedures\SP_Lending_Insert.sql" />
     <Build Include="StockedProcedures\SP_Lending_Update.sql" />
+    <Build Include="StockedProcedures\SP_Library_GetByUserId.sql" />
+    <Build Include="StockedProcedures\SP_Library_GetByGameId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.publish.xml" />
