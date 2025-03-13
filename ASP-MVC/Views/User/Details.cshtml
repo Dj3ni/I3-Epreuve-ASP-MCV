@@ -4,10 +4,10 @@
     // ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Model.Pseudo 's space</h1>
 
 <div>
-    <h4>UserDetails</h4>
+
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -25,6 +25,9 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.User_Id }) |
+	@if(sessionManager.ConnectedUser != null &&(sessionManager.ConnectedUser.User_Id == Model.User_Id)){
+
+		@Html.ActionLink("Edit", "Edit", new { id = Model.User_Id })
+	}
     <a asp-action="Index">Back to List</a>
 </div>

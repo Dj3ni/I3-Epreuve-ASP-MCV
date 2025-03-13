@@ -53,11 +53,7 @@
 				<span>No data recieved</span>
 			}
 			else{
-				<span>
-					<a asp-action="Details" asp-controller="User" asp-route-id="@sessionManager.">
-						@Html.DisplayFor(model => model.Duration) minutes.
-					</a>
-				</span>
+				<span>@Html.DisplayFor(model => model.Duration) minutes.</span>
 			}
         </dd>
         <dt class = "col-sm-5">
@@ -67,7 +63,7 @@
         @*     @Html.DisplayFor(model => model.Registerer) *@
         @* </dd> *@
 		<dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Registerer_Name)
+            <a asp-action="Details" asp-controller="User" asp-route-id="@Model.Registerer">@Html.DisplayFor(model => model.Registerer_Name)</a>
         </dd>
     </dl>
 </div>
