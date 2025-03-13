@@ -1,4 +1,5 @@
 ﻿using ASP_MVC.Handlers;
+using ASP_MVC.Handlers.ActionFilters;
 using ASP_MVC.Mappers;
 using ASP_MVC.Models.Boardgame;
 using BLL.Entities;
@@ -33,6 +34,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: BoardgameController/Create
+		[ConnectionNeeded]
 		public ActionResult Create()
 		{
 			return View();
@@ -41,6 +43,7 @@ namespace ASP_MVC.Controllers
 		// POST: BoardgameController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ConnectionNeeded]
 		public ActionResult Create(BoardgameCreate form)
 		{
 			try

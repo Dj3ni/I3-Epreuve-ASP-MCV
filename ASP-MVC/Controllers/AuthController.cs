@@ -1,4 +1,5 @@
-﻿using ASP_MVC.Handlers.SessionManager;
+﻿using ASP_MVC.Handlers.ActionFilters;
+using ASP_MVC.Handlers.SessionManager;
 using ASP_MVC.Models.Auth;
 using BLL.Entities;
 using Common.Repositories;
@@ -19,12 +20,14 @@ namespace ASP_MVC.Controllers
 		}
 
 		//Actions
+		[AnonymousNeeded]
 		public IActionResult Index()
 		{
 			return RedirectToAction(nameof(Login));
 		}
 
 		//Get
+		[AnonymousNeeded]
 		public IActionResult Login()
 		{
 			return View();
@@ -32,6 +35,7 @@ namespace ASP_MVC.Controllers
 
 		//Post
 		[HttpPost]
+		[AnonymousNeeded]
 		public IActionResult Login(AuthLoginForm form)
 		{
 			try
@@ -66,6 +70,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		//Get
+		[ConnectionNeeded]
 		public IActionResult Logout()
 		{
 			return View();
@@ -73,6 +78,7 @@ namespace ASP_MVC.Controllers
 
 		//Post
 		[HttpPost]
+		[ConnectionNeeded]
 		public IActionResult Logout(IFormCollection form)
 		{
 			try

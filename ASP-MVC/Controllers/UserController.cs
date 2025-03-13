@@ -1,4 +1,5 @@
-﻿using ASP_MVC.Mappers;
+﻿using ASP_MVC.Handlers.ActionFilters;
+using ASP_MVC.Mappers;
 using ASP_MVC.Models.User;
 using BLL.Entities;
 using Common.Repositories;
@@ -18,7 +19,7 @@ namespace ASP_MVC.Controllers
 		}
 
 
-		// GET: UserController
+		// GET: UserController (Only for Debug)
 		public ActionResult Index()
 		{
 			IEnumerable<UserListItem> model = _userService.GetAll().Select(bll=>bll.ToListItem());
@@ -26,6 +27,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: UserController/Details/5
+		[ConnectionNeeded]
 		public ActionResult Details(Guid id)
 		{
 			UserDetails model = _userService.GetById(id).ToDetails();
@@ -33,6 +35,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: UserController/Create
+		[AnonymousNeeded]
 		public ActionResult Create()
 		{
 			return View();
@@ -41,6 +44,7 @@ namespace ASP_MVC.Controllers
 		// POST: UserController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[AnonymousNeeded]
 		public ActionResult Create(UserInsert form)
 		{
 			try
@@ -56,6 +60,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: UserController/Edit/5
+		[ConnectionNeeded]
 		public ActionResult Edit(Guid id)
 		{
 			UserUpdate model = _userService.GetById(id).ToEdit();
@@ -65,6 +70,7 @@ namespace ASP_MVC.Controllers
 		// POST: UserController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ConnectionNeeded]
 		public ActionResult Edit(Guid id, UserUpdate form)
 		{
 			try
@@ -79,16 +85,18 @@ namespace ASP_MVC.Controllers
 			}
 		}
 
-		// GET: UserController/Delete/5
+		// GET: UserController/Unsubscribe/5
+		[ConnectionNeeded]
 		public ActionResult Unsubscribe(Guid id)
 		{
 			UserUnsubscribe model = _userService.GetById(id).ToUnsubscribe();
 			return View(model);
 		}
 
-		// POST: UserController/Delete/5
+		// POST: UserController/Unsubscribe/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ConnectionNeeded]
 		public ActionResult Unsubscribe(Guid id, UserUnsubscribe form)
 		{
 			try
