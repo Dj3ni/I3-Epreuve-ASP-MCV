@@ -1,4 +1,5 @@
 ﻿using ASP_MVC.Handlers.ActionFilters;
+using ASP_MVC.Handlers.Managers;
 using ASP_MVC.Mappers;
 using ASP_MVC.Models.User;
 using BLL.Entities;
@@ -12,10 +13,12 @@ namespace ASP_MVC.Controllers
 	{
 		//Services injection
 		private readonly IUserRepository<User> _userService;
+		private readonly SessionManager _sessionManager;
 
-		public UserController(IUserRepository<User> userService)
+		public UserController(IUserRepository<User> userService, SessionManager sessionManager)
 		{
 			_userService = userService;
+			_sessionManager = sessionManager;
 		}
 
 
@@ -50,8 +53,24 @@ namespace ASP_MVC.Controllers
 			try
 			{
 				if (!ModelState.IsValid) throw new ArgumentException(nameof(form));
+
+				//Add in DB
 				Guid id = _userService.Insert(form.ToBLL());
-				return RedirectToAction(nameof(Details), new {id});
+
+				//Connect to Session (see if possible to redirect to Login Post)
+				User user = _userService.GetById(id);
+				ConnectedUser sessionUser = new ConnectedUser()
+				{
+					User_Id = user.User_Id,
+					Pseudo = user.Pseudo,
+					Email = user.Email,
+					ConnectedAt = DateTime.Now,
+				};
+				_sessionManager.Login(sessionUser);
+
+				//Redirect
+				return RedirectToAction(nameof(Index), "Home");
+				//return RedirectToAction(nameof(Details), new {id});
 			}
 			catch
 			{

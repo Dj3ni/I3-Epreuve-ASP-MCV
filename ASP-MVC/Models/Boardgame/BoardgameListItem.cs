@@ -8,7 +8,7 @@ namespace ASP_MVC.Models.Boardgame
 		[ScaffoldColumn(false)]
 		public int Game_id { get; set; }
 
-		[DisplayName("Game title:")]
+		[DisplayName("Game title")]
 		public string Game_Title { get; set; }
 	}
 }
