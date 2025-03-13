@@ -25,6 +25,7 @@ namespace BLL.Entities
 			Game_Copy_Id = game_Copy_Id;
 			Game_Id = game_Id;
 			User_Id = user_Id;
+			//State = state;
 			State = Enum.Parse<StateEnum>(state);
 		}
 	}
