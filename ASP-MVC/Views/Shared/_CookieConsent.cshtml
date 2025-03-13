@@ -7,11 +7,11 @@
 
 @if(showBanner){
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        Ce site utilise des cookies essentiels pour son bon fonctionnement.<br />
-        <a asp-action="privacy" asp-controller="home">En savoir plus.</a>
+        This website uses essential cookies to work properly.<br />
+        <a asp-action="privacy" asp-controller="home">More info</a>
         <button type="button" class="accept-policy btn btn-outline-success rounded-pill"
             data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            Accepter
+            Accept
         </button>
     </div>
     <script>
