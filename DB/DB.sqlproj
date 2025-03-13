@@ -80,7 +80,7 @@
     <Build Include="StockedProcedures\SP_Tag_Insert.sql" />
     <Build Include="StockedProcedures\SP_Library_Insert.sql" />
     <Build Include="StockedProcedures\SP_Library_Update.sql" />
-    <Build Include="StockedProcedures\SP_Library_GetAllActive.sql" />
+    <Build Include="StockedProcedures\SP_Library_GetAll.sql" />
     <Build Include="StockedProcedures\SP_Library_GetById.sql" />
     <Build Include="StockedProcedures\SP_Library_Delete.sql" />
     <Build Include="StockedProcedures\SP_Lending_Insert.sql" />

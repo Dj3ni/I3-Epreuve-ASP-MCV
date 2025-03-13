@@ -4,11 +4,10 @@
     ViewData["Title"] = "Unsubscribe";
 }
 
-<h1>Unsubscribe</h1>
+@* <h1>I want to leave far away and never come back again</h1> *@
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to leave us forever?</h3>
 <div>
-    <h4>UserUnsubscribe</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -27,7 +26,7 @@
     
     <form asp-action="Unsubscribe">
 		@Html.HiddenFor(Model=>Model.User_Id)
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Yes I am sure, bye!" class="btn btn-danger" />
+		<button class="btn btn-secondary"><a asp-action="Index">No, I was kidding, let's go back safely</a></button>
     </form>
 </div>

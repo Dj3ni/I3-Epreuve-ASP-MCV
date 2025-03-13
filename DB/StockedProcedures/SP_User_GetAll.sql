@@ -10,6 +10,5 @@ BEGIN
 		[Deactivation_Date]
 
 	FROM [User]
-
 	Where [Deactivation_Date] is null
 END
