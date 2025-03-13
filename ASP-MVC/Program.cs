@@ -13,8 +13,12 @@ namespace ASP_MVC
 
 			// Personalized Services
 				//User
-	builder.Services.AddScoped<IUserRepository<DAL.Entities.User>,DAL.Services.UserService>();
-			builder.Services.AddScoped<IUserRepository<BLL.Entities.User>,BLL.Services.UserService>();
+				builder.Services.AddScoped<IUserRepository<DAL.Entities.User>,DAL.Services.UserService>();
+				builder.Services.AddScoped<IUserRepository<BLL.Entities.User>,BLL.Services.UserService>();
+			
+				//Boardgame
+				builder.Services.AddScoped<IBoardgameRepository<DAL.Entities.Boardgame>,DAL.Services.BoardgameService>();
+				builder.Services.AddScoped<IBoardgameRepository<BLL.Entities.Boardgame>,BLL.Services.BoardgameService>();
 
 			var app = builder.Build();
 

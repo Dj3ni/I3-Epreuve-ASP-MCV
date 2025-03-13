@@ -34,7 +34,7 @@ namespace ASP_MVC.Mappers
 			{
 				Game_id = game.Game_id,
 				Game_Title = game.Game_Title,
-				Game_Description = game.Game_Description,
+				Description = game.Description,
 				MinAge = game.MinAge,
 				MaxAge = game.MaxAge,
 				MinPlayers = game.MinPlayers,
@@ -56,13 +56,13 @@ namespace ASP_MVC.Mappers
 			return new Boardgame(
 					-1,
 					form.Game_Title,
-					form.Game_Description,
+					form.Description,
 					form.MinAge,
 					form.MaxAge,
 					form.MinPlayers,
 					form.MaxPlayers,
 					form.Duration,
-					Guid.Empty //We will fill it in the BLL
+					new Guid("568E2481-4ECD-414E-B370-506D603D3727")//Guid.Empty //We will fill it in the BLL
 				);
 		}
 	}

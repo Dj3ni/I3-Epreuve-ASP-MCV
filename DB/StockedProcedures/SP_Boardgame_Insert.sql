@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Boardgame_Insert]
 	@game_title nvarchar(200),
 	@description nvarchar(MAX),
-	@ageMin int,
-	@ageMax int,
-	@minPlayer int,
-	@maxPlayer int,
+	@minAge int,
+	@maxAge int,
+	@minPlayers int,
+	@maxPlayers int,
 	@duration int null,
 	@registerer uniqueidentifier
 AS
@@ -15,10 +15,10 @@ BEGIN
 	Insert Into [Boardgame]
 		([Game_Title],
 		[Description],
-		[AgeMin],
-		[AgeMax],
-		[Min_Players],
-		[Max_Players],
+		[MinAge],
+		[MaxAge],
+		[MinPlayers],
+		[MaxPlayers],
 		[Duration],
 		[Registration_Date],
 		[Registerer])
@@ -28,10 +28,10 @@ BEGIN
 	Values
 		(@game_title,
 		@description,
-		@ageMin,
-		@ageMax,
-		@minPlayer,
-		@maxPlayer,
+		@minAge,
+		@maxAge,
+		@minPlayers,
+		@maxPlayers,
 		@duration,
 		@registration_date,
 		@registerer)

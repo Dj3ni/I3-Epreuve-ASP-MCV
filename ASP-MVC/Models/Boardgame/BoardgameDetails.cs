@@ -12,7 +12,7 @@ namespace ASP_MVC.Models.Boardgame
 		public string Game_Title { get; set; }
 
 		[DisplayName("Description")]
-		public string Game_Description { get; set; }
+		public string Description { get; set; }
 
 		[DisplayName("Start playing : ")]
 		public int MinAge { get; set; }

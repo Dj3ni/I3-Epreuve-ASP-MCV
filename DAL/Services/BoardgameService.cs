@@ -71,7 +71,7 @@ namespace DAL.Services
 
 					//Parameters
 					command.Parameters.AddWithValue(nameof(Boardgame.Game_Title), game.Game_Title);
-					command.Parameters.AddWithValue(nameof(Boardgame.Game_Description), game.Game_Description);
+					command.Parameters.AddWithValue(nameof(Boardgame.Description), game.Description);
 					command.Parameters.AddWithValue(nameof(Boardgame.MinAge), game.MinAge);
 					command.Parameters.AddWithValue(nameof(Boardgame.MaxAge), game.MaxAge);
 					command.Parameters.AddWithValue(nameof(Boardgame.MinPlayers), game.MinPlayers);

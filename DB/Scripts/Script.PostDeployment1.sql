@@ -80,10 +80,10 @@ Insert into @insertedGameIds(game_id)
 Exec SP_Boardgame_Insert
 @game_title = 'Citadelles',
 @description ='Each player has to build is own city with the help of cards representing city districts. Each turn the players pick a character card and use it''s power. The winner will be the best ambitious and malignant',
-@ageMin = 10,
-@ageMax = 99,
-@minPlayer = 2,
-@maxPlayer = 8,
+@minAge = 10,
+@maxage = 99,
+@minPlayers = 2,
+@maxPlayers = 8,
 @duration = 60,
 @registerer = @UserId5
 
@@ -96,10 +96,10 @@ Insert into @insertedGameIds(game_id)
 Exec SP_Boardgame_Insert
 @game_title = 'Rauha',
 @description = 'Build your own biotope, grow some shrooms and make a maximum combo to win spirits, crystals and victory points',
-@ageMin = 10,
-@ageMax = 99,
-@minPlayer = 2,
-@maxPlayer = 5,
+@minAge = 10,
+@maxage = 99,
+@minPlayers = 2,
+@maxPlayers = 5,
 @duration = 45,
 @registerer = @UserId1
 
@@ -112,10 +112,10 @@ Insert into @insertedGameIds(game_id)
 Exec SP_Boardgame_Insert
 @game_title = 'Yamatai',
 @description = 'Try to recruit heroes and conquer islands to impress the emperess Himiko',
-@ageMin = 10,
-@ageMax = 99,
-@minPlayer = 2,
-@maxPlayer = 4,
+@minAge = 10,
+@maxage = 99,
+@minPlayers = 2,
+@maxPlayers = 4,
 @duration = 60,
 @registerer = @UserId3
 
@@ -128,10 +128,10 @@ Insert into @insertedGameIds(game_id)
 Exec SP_Boardgame_Insert
 @game_title = 'Solstis',
 @description = 'Build your path threw the mountain and light the fires before your opponent',
-@ageMin = 8,
-@ageMax = 99,
-@minPlayer =2,
-@maxPlayer = 2,
+@minAge = 8,
+@maxage = 99,
+@minPlayers =2,
+@maxPlayers = 2,
 @duration = 15,
 @registerer = @USerId4
 

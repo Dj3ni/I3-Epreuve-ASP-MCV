@@ -10,8 +10,7 @@ namespace DAL.Entities
 	{
 		public int Game_id { get; set; }
 		public string Game_Title { get; set; }
-		public string Game_Description { get; set; }
-
+		public string Description { get; set; }
 		public int MinAge {  get; set; }
 		public int MaxAge { get; set; }
 		public int MinPlayers { get; set; }

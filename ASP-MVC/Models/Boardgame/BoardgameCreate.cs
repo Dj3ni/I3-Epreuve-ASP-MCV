@@ -11,10 +11,10 @@ namespace ASP_MVC.Models.Boardgame
 
 		[DisplayName("Description")]
 		[Required(ErrorMessage = "Invite people to play this game please, write something about it!")]
-		public string Game_Description { get; set; }
+		public string Description { get; set; }
 
-		[DisplayName("Start playing : ")]
-		[Required(ErrorMessage = "")]
+		[DisplayName("Start playing at age : ")]
+		[Required(ErrorMessage = "It's imperative to know the minimum players")]
 		public int MinAge { get; set; }
 
 

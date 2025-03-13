@@ -36,7 +36,7 @@ namespace DAL.Mappers
 			{
 				Game_id = (int)record[nameof(Boardgame.Game_id)],
 				Game_Title = (string)record[nameof(Boardgame.Game_Title)],
-				Game_Description = (string)record[nameof(Boardgame.Game_Description)],
+				Description = (string)record[nameof(Boardgame.Description)],
 				MinAge = (int)record[nameof (Boardgame.MinAge)],
 				MaxAge = (int)record[nameof(Boardgame.MaxAge)],
 				MinPlayers = (int)record[nameof(Boardgame.MinPlayers)],

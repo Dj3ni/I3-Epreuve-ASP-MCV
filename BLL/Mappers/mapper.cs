@@ -58,7 +58,7 @@ namespace BLL.Mappers
 			return new Boardgame(
 				game.Game_id,
 				game.Game_Title,
-				game.Game_Description,
+				game.Description,
 				game.MinAge,
 				game.MaxAge,
 				game.MinPlayers,
@@ -81,7 +81,7 @@ namespace BLL.Mappers
 			{
 				Game_id = game.Game_id,
 				Game_Title = game.Game_Title,
-				Game_Description = game.Game_Description,
+				Description = game.Description,
 				MinAge = game.MinAge,
 				MaxAge = game.MaxAge,
 				MinPlayers = game.MinPlayers,

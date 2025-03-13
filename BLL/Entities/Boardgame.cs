@@ -10,8 +10,7 @@ namespace BLL.Entities
 	{
 		public int Game_id { get; set; }
 		public string Game_Title { get; set; }
-		public string Game_Description { get; set; }
-
+		public string Description { get; set; }
 		public int MinAge { get; set; }
 		public int MaxAge { get; set; }
 		public int MinPlayers { get; set; }
@@ -19,11 +18,11 @@ namespace BLL.Entities
 		public int? Duration { get; set; }
 		public Guid Registerer { get; set; }
 
-		public Boardgame(int game_id, string game_Title, string game_Description, int minAge, int maxAge, int minPlayers, int maxPlayers, int? duration, Guid registerer)
+		public Boardgame(int game_id, string game_Title, string description, int minAge, int maxAge, int minPlayers, int maxPlayers, int? duration, Guid registerer)
 		{
 			Game_id = game_id;
 			Game_Title = game_Title;
-			Game_Description = game_Description;
+			Description = description;
 			MinAge = minAge;
 			MaxAge = maxAge;
 			MinPlayers = minPlayers;
