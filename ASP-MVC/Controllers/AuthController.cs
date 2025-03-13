@@ -72,6 +72,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		//Post
+		[HttpPost]
 		public IActionResult Logout(IFormCollection form)
 		{
 			try
