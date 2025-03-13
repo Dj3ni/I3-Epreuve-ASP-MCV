@@ -1,4 +1,4 @@
-using ASP_MVC.Handlers.SessionManager;
+using ASP_MVC.Handlers.Managers;
 using Common.Repositories;
 
 namespace ASP_MVC

@@ -1,5 +1,5 @@
 ﻿using ASP_MVC.Handlers.ActionFilters;
-using ASP_MVC.Handlers.SessionManager;
+using ASP_MVC.Handlers.Managers;
 using ASP_MVC.Models.Auth;
 using BLL.Entities;
 using Common.Repositories;

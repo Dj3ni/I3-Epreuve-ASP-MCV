@@ -7,12 +7,12 @@ AS
 Begin
 
 	Insert into [Lending]
-			([Game_Copy_id],
+			([Game_Copy_Id],
 			[Lending_Date],
 			[Owner_Id],
 			[Borrower_Id])
 	
-	Output [inserted].[Lending_id]
+	Output [inserted].[Lending_Id]
 
 	Values (@game_copy_id,
 			@lending_date,

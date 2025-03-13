@@ -40,6 +40,7 @@ namespace ASP_MVC.Mappers
 				MinPlayers = game.MinPlayers,
 				MaxPlayers = game.MaxPlayers,
 				Duration = game.Duration,
+				Registerer_Name = game.Registerer_Name,
 				Registerer = game.Registerer,
 			};
 		}
@@ -61,8 +62,9 @@ namespace ASP_MVC.Mappers
 					form.MaxAge,
 					form.MinPlayers,
 					form.MaxPlayers,
-					form.Duration,
-					new Guid("568E2481-4ECD-414E-B370-506D603D3727")//Guid.Empty //We will fill it in the BLL
+					form.Duration ?? null,
+					form.Registerer
+					//new Guid("568E2481-4ECD-414E-B370-506D603D3727") //For debug
 				);
 		}
 	}

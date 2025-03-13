@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace ASP_MVC.Handlers.SessionManager
+namespace ASP_MVC.Handlers.Managers
 {
 	public class SessionManager
 	{

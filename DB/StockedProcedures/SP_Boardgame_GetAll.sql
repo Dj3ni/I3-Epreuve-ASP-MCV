@@ -11,7 +11,7 @@ Begin
 		[MaxPlayers],
 		[Duration],
 		[Registerer],
-		[Registration_date]
+		[Registration_Date]
 
 	FROM [Boardgame]
 

@@ -14,10 +14,14 @@ namespace BLL.Services
 	{
 		// Service injection
 		private readonly IBoardgameRepository<DAL.Entities.Boardgame> _boardgameService;
+		private readonly IUserRepository<DAL.Entities.User> _userService;
 
-		public BoardgameService(IBoardgameRepository<DAL.Entities.Boardgame> boardgameService)
+
+		public BoardgameService(
+			IBoardgameRepository<DAL.Entities.Boardgame> boardgameService, IUserRepository<DAL.Entities.User> userService)
 		{
 			_boardgameService = boardgameService;
+			_userService = userService;
 		}
 
 		//Methods
@@ -28,11 +32,19 @@ namespace BLL.Services
 
 		public Boardgame GetById(int id)
 		{
-			return _boardgameService.GetById(id).ToBLL();
+			//For data set with script, will disappear in production
+			Boardgame game = _boardgameService.GetById(id).ToBLL();
+			User user = _userService.GetById(game.Registerer).ToBll();
+			game.Registerer_Name = user.Pseudo;
+
+			return game;
 		}
 
 		public int Insert(Boardgame game)
 		{
+			User user = _userService.GetById(game.Registerer).ToBll();
+			game.Registerer_Name = user.Pseudo;
+
 			return _boardgameService.Insert(game.ToDAL());
 		}
 	}

@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -37,6 +38,12 @@ namespace ASP_MVC.Models.Boardgame
 
 		[DisplayName("Fun part duration, without rules explanation: ")]
 		public int? Duration { get; set; }
+
+		[ScaffoldColumn(false)]
+		[BindNever]
+		public Guid Registerer {get; set; }
+		
+	
 
 	}
 }

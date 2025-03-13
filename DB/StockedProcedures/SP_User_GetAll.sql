@@ -7,7 +7,7 @@ BEGIN
 		[Pseudo],
 		[Email],
 		[Password],
-		[Deactivation_date]
+		[Deactivation_Date]
 
 	FROM [User]
 

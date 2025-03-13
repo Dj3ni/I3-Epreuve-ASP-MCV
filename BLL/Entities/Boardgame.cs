@@ -18,6 +18,8 @@ namespace BLL.Entities
 		public int? Duration { get; set; }
 		public Guid Registerer { get; set; }
 
+		public string Registerer_Name { get; set; }
+
 		public Boardgame(int game_id, string game_Title, string description, int minAge, int maxAge, int minPlayers, int maxPlayers, int? duration, Guid registerer)
 		{
 			Game_id = game_id;
@@ -29,6 +31,11 @@ namespace BLL.Entities
 			MaxPlayers = maxPlayers;
 			Duration = duration;
 			Registerer = registerer;
+		}
+
+		public Boardgame(int game_id, string game_Title, string description, int minAge, int maxAge, int minPlayers, int maxPlayers, int? duration, Guid registerer, string registerer_Name): this(game_id,game_Title,description,minAge,maxAge,minPlayers,maxPlayers,duration,registerer)
+		{
+			Registerer_Name = registerer_Name;
 		}
 
 	}
