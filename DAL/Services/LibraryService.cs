@@ -19,7 +19,22 @@ namespace DAL.Services
 		//For debug
 		public IEnumerable<GameCopy> GetAll()
 		{
-			throw new NotImplementedException();
+			using (SqlConnection connection = new SqlConnection(_connectionString))
+			{
+				using (SqlCommand command = connection.CreateCommand())
+				{
+					command.CommandText = "SP_Library_GetAll";
+					command.CommandType = CommandType.StoredProcedure;
+					connection.Open();
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							yield return reader.ToGameCopy();
+						}
+					}
+				}
+			}
 		}
 
 		public IEnumerable<GameCopy> GetByGameId(int game_id)

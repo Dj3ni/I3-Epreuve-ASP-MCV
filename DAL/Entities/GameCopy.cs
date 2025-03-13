@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
-	
-
 	public  class GameCopy
 	{
 		public int Game_Copy_Id { get; set; }

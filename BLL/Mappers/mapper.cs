@@ -90,5 +90,40 @@ namespace BLL.Mappers
 				Registerer = game.Registerer
 			};
 		}
+
+		/// <summary>
+		/// Convert DAL GameCopy to BLLGameCopy
+		/// </summary>
+		/// <param name="game">DAL GameCopy</param>
+		/// <returns>BLLGameCopy</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static GameCopy ToBLL(this DAL.Entities.GameCopy game)
+		{
+			if( game is null) throw new ArgumentNullException( nameof(game));
+			return new GameCopy(
+					game.Game_Copy_Id,
+					game.Game_Id,
+					game.User_Id,
+					Enum.Parse<StateEnum>(game.State) //sensible à la casse
+				);
+		}
+
+		/// <summary>
+		/// Convert BLL GameCopy to DALGameCopy
+		/// </summary>
+		/// <param name="gameCopy">BLL GameCopy</param>
+		/// <returns>DALGameCopy</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static DAL.Entities.GameCopy ToDAL(this GameCopy gameCopy)
+		{
+			if(gameCopy is null) throw new ArgumentNullException(nameof (gameCopy));
+			return new DAL.Entities.GameCopy()
+			{
+				Game_Copy_Id = gameCopy.Game_Copy_Id,
+				Game_Id = gameCopy.Game_Id,
+				User_Id = gameCopy.User_Id,
+				State = gameCopy.State.ToString(),
+			};
+		}
 	}
 }

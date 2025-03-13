@@ -14,5 +14,18 @@ namespace BLL.Entities
 	};
 	public class GameCopy
 	{
+
+		public int Game_Copy_Id { get; set; }
+		public int Game_Id { get; set; }
+		public Guid User_Id { get; set; }
+		public StateEnum State { get; set; }
+
+		public GameCopy(int game_Copy_Id, int game_Id, Guid user_Id, StateEnum state)
+		{
+			Game_Copy_Id = game_Copy_Id;
+			Game_Id = game_Id;
+			User_Id = user_Id;
+			State = state;
+		}
 	}
 }
