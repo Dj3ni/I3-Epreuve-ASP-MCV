@@ -59,7 +59,8 @@ namespace ASP_MVC.Controllers
 				_sessionManager.Login(sessionUser);
 
 				//4. Redirect
-				return RedirectToAction("Details", "User", new {id});
+				return RedirectToAction("Index", "Home");
+				//return RedirectToAction("Details", "User", new {id});
 
 			}
 			catch (Exception)
