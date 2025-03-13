@@ -29,6 +29,12 @@ namespace DAL.Mappers
 			};
 		}
 
+		/// <summary>
+		/// Convert IDataRecord to Dal Boardgame
+		/// </summary>
+		/// <param name="record">IDataRecord</param>
+		/// <returns>Dal Boardgame</returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		public static Boardgame ToBoardgame(this IDataRecord record)
 		{
 			if (record is null) throw new ArgumentNullException(nameof(record));
@@ -44,6 +50,24 @@ namespace DAL.Mappers
 				Duration = (record[nameof(Boardgame.Duration)] is DBNull)? null : (int)record[nameof(Boardgame.Duration)],
 				Registerer = (Guid)record[nameof(Boardgame.Registerer)],
 
+			};
+		}
+
+		/// <summary>
+		/// Convert IDataRecord to Dal GameCopy
+		/// </summary>
+		/// <param name="record">Convert IDataRecord</param>
+		/// <returns>Dal GameCopy</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static GameCopy ToGameCopy(this IDataRecord record)
+		{
+			if(record is null) throw new ArgumentNullException(nameof (record));
+			return new GameCopy()
+			{
+				Game_Copy_Id = (int)record[nameof(GameCopy.Game_Copy_Id)],
+				Game_Id = (int)record[nameof(GameCopy.Game_Id)],
+				User_Id = (Guid)record[nameof(GameCopy.User_Id)],
+				State = (string)record[nameof(GameCopy.State)],
 			};
 		}
 	}
