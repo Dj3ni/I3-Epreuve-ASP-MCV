@@ -1,4 +1,5 @@
-﻿using ASP_MVC.Mappers;
+﻿using ASP_MVC.Handlers;
+using ASP_MVC.Mappers;
 using ASP_MVC.Models.Boardgame;
 using BLL.Entities;
 using Common.Repositories;
@@ -44,7 +45,10 @@ namespace ASP_MVC.Controllers
 		{
 			try
 			{
-				//Don't forget to add validators for age and players first
+				//Custom validations
+				ModelState.MinMaxValidation(form.MinAge,form.MaxAge, nameof(form.MinAge), nameof(form.MaxAge));
+				ModelState.MinMaxValidation(form.MinPlayers, form.MaxPlayers, nameof(form.MinPlayers), nameof(form.MaxPlayers));
+				//FormValidation
 				if(!ModelState.IsValid) throw new ArgumentException(nameof(form));
 				int id = _boardgameService.Insert(form.ToBLL());
 				return RedirectToAction(nameof(Details), new {id});
