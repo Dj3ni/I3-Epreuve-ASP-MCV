@@ -53,6 +53,11 @@ namespace ASP_MVC
 				builder.Services.AddScoped<IBoardgameRepository<DAL.Entities.Boardgame>,DAL.Services.BoardgameService>();
 				builder.Services.AddScoped<IBoardgameRepository<BLL.Entities.Boardgame>,BLL.Services.BoardgameService>();
 
+				//Library
+				builder.Services.AddScoped<ILibraryRepository<DAL.Entities.GameCopy>, DAL.Services.LibraryService>();
+				builder.Services.AddScoped<ILibraryRepository<BLL.Entities.GameCopy>, BLL.Services.LibraryService>();
+				
+
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.

@@ -104,7 +104,7 @@ namespace BLL.Mappers
 					game.Game_Copy_Id,
 					game.Game_Id,
 					game.User_Id,
-					Enum.Parse<StateEnum>(game.State) //sensible à la casse
+					game.State
 				);
 		}
 
