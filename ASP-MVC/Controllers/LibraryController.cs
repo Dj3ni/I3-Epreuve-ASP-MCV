@@ -31,14 +31,14 @@ namespace ASP_MVC.Controllers
 			return View();
 		}
 
-		// GET: LibraryController/Details/5
-		public ActionResult Details(int id)
-		{
-			return View();
-		}
+		//// GET: LibraryController/Details/5
+		//public ActionResult Details(int id)
+		//{
+		//	return View();
+		//}
 
 		// GET: LibraryController/Create
-		[ConnectionNeeded]
+		[ConnectionNeeded] // + check owner
 		public ActionResult Create(int gameId)
 		{
 			ConnectedUser user = _sessionManager.ConnectedUser;
@@ -63,7 +63,7 @@ namespace ASP_MVC.Controllers
 		// POST: LibraryController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		[ConnectionNeeded]
+		[ConnectionNeeded] // + check owner
 		public ActionResult Create(GameCopyCreate form)
 		{
 			try
@@ -87,6 +87,7 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: LibraryController/Edit/5
+		[ConnectionNeeded] // + check owner
 		public ActionResult Edit(int id)
 		{
 			return View();
@@ -95,6 +96,7 @@ namespace ASP_MVC.Controllers
 		// POST: LibraryController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ConnectionNeeded] // + check owner
 		public ActionResult Edit(int id, IFormCollection collection)
 		{
 			try
@@ -108,19 +110,25 @@ namespace ASP_MVC.Controllers
 		}
 
 		// GET: LibraryController/Delete/5
+		[ConnectionNeeded] // + check owner
 		public ActionResult Delete(int id)
 		{
-			return View();
+			GameCopyDelete model = _libraryService.GetById(id).ToDelete();
+			return View(model);
 		}
 
 		// POST: LibraryController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
+		[ConnectionNeeded] // + check owner
+		public ActionResult Delete(int id, GameCopyDelete form)
 		{
 			try
 			{
-				return RedirectToAction(nameof(Index));
+				//Problem Fkey reference
+				_libraryService.Delete(id);
+				Guid user_id = _sessionManager.ConnectedUser.User_Id;
+				return RedirectToAction("Details", "User", new {id = user_id});
 			}
 			catch
 			{
@@ -128,10 +136,5 @@ namespace ASP_MVC.Controllers
 			}
 		}
 
-		//public ActionResult MyLibrary(Guid id)
-		//{
-		//	IEnumerable<GameCopyListItem> model = _libraryService.GetByUserId(id).Select(bll => bll.ToListItem());
-		//	return View(model);
-		//}
 	}
 }

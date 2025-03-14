@@ -57,8 +57,9 @@ else{
 					<td>
 						@* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
 						@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
+
 						@* Plus check with attribute for change and Url*@
-						@* @Html.ActionLink("Remove from library", "Delete", new { id = item.Game_Copy_Id }) *@
+						@Html.ActionLink("Remove from library", "Delete","Library", new { id = item.Game_Copy_Id })
 
 					</td>
 				}

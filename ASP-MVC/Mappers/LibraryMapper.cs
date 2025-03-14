@@ -23,24 +23,6 @@ namespace ASP_MVC.Mappers
 		}
 
 		/// <summary>
-		/// We send Data to GameCopyCreate  from BLL.User for Select field
-		/// </summary>
-		/// <param name="game"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentNullException"></exception>
-		//public static GameCopyCreate ToCreate(this GameCopy game)
-		//{
-		//	if (game is null) throw new ArgumentNullException(nameof(game));
-		//	return new GameCopyCreate()
-		//	{
-		//		Game_Id = game.Game_Id,
-		//		User_Id = game.User_Id,
-		//		State = game.State.ToString(),
-		//	};
-		//}
-
-
-		/// <summary>
 		/// Convert BLL GameCopy to GamecopyListItem
 		/// </summary>
 		/// <param name="game">BLL GameCopy</param>
@@ -60,6 +42,22 @@ namespace ASP_MVC.Mappers
 			};
 		}
 
+		/// <summary>
+		/// Convert BLL Gamecopy to Data for GameCopyDelete view model
+		/// </summary>
+		/// <param name="gameCopy">BLL Gamecopy</param>
+		/// <returns>GameCopyDelete</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static GameCopyDelete ToDelete(this GameCopy gameCopy)
+		{
+			if( gameCopy is null) throw new ArgumentNullException(nameof (gameCopy));
+			return new GameCopyDelete() { 
+				Game_Copy_Id = gameCopy.Game_Copy_Id,
+				Game_title = gameCopy.Game_Title,
+				State = gameCopy.State,
+				User_Id= gameCopy.User_Id,
+			};
+		}
 	}
 }
 
