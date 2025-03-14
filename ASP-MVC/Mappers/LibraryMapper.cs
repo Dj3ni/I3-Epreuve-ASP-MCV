@@ -15,9 +15,9 @@ namespace ASP_MVC.Mappers
 		{
 			if (form is null) throw new ArgumentNullException(nameof(form));
 			return new GameCopy(
-				-1,
+				0,
 				form.Game_Id,
-				Guid.Empty,
+				form.User_Id,
 				form.State
 			);
 		}

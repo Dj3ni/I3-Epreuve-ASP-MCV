@@ -27,7 +27,7 @@
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id=item.Game_id }) |
-				<span><a asp-action="Create" asp-controller="Library">Add in my library</a></span>
+				<span><a asp-action="Create" asp-controller="Library" asp-route-gameId="@item.Game_id">Add in my library</a></span>
             </td>
         </tr>
 }

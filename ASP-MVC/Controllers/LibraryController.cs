@@ -16,11 +16,13 @@ namespace ASP_MVC.Controllers
 		//Service injection
 		private readonly SessionManager _sessionManager;
 		private readonly ILibraryRepository<GameCopy> _libraryService;
+		private readonly IBoardgameRepository<Boardgame> _boardgameService;
 
-		public LibraryController(SessionManager sessionManager, ILibraryRepository<GameCopy> libraryService)
+		public LibraryController(SessionManager sessionManager, ILibraryRepository<GameCopy> libraryService, IBoardgameRepository<Boardgame> boardgameService)
 		{
 			_sessionManager = sessionManager;
 			_libraryService = libraryService;
+			_boardgameService = boardgameService;
 		}
 
 		// GET: LibraryController
@@ -37,17 +39,23 @@ namespace ASP_MVC.Controllers
 
 		// GET: LibraryController/Create
 		[ConnectionNeeded]
-		public ActionResult Create()
+		public ActionResult Create(int gameId)
 		{
+			ConnectedUser user = _sessionManager.ConnectedUser;
+			Boardgame game = _boardgameService.GetById(gameId);
+
 			GameCopyCreate model = new GameCopyCreate()
 			{
-				States = Enum.GetValues(typeof(StateEnum))
-			.Cast<StateEnum>()
-			.Select(e => new SelectListItem 
-			{ 
-				Value = e.ToString(), 
-				Text = e.ToString()
-			}).ToList()
+				User_Id = user.User_Id,
+				Game_Id = gameId,
+				Game_Title = game.Game_Title,
+				States = Enum.GetValues<StateEnum>()
+							.Select(e => new SelectListItem
+							{
+								Value = e.ToString(),
+								Text = e.ToString()
+							})
+							.ToList()
 			};
 			return View(model);
 		}
@@ -65,12 +73,12 @@ namespace ASP_MVC.Controllers
 				
 				if (!ModelState.IsValid) throw new ArgumentException(nameof(form));
 
-				ConnectedUser user = _sessionManager.ConnectedUser;
-				form.User_Id = user.User_Id;
+				//ConnectedUser user = _sessionManager.ConnectedUser;
+				//form.User_Id = user.User_Id;
 
 				int id = _libraryService.Insert(form.ToBLL());
 
-				return RedirectToAction(nameof(Index));
+				return RedirectToAction(nameof(Index), "Boardgame");
 			}
 			catch
 			{
