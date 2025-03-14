@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Game_Id)
+                @Html.DisplayNameFor(model => model.Game_Title)
             </th>
             @*For debug <th> *@
             @*     @Html.DisplayNameFor(model => model.User_Id) *@
@@ -19,19 +19,23 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Game_Id)
-            </td>
+            @* <td> *@
+            @*     @Html.DisplayFor(modelItem => item.Game_Id) *@
+            @* </td> *@
             @* for debug <td> *@
             @*     @Html.DisplayFor(modelItem => item.User_Id) *@
             @* </td> *@
+
+			<td>
+				@Html.DisplayFor(modelItem => item.Game_Title)
+			</td>
             <td>
                 @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) |
-					@Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) |
-					@Html.ActionLink("Delete", "Delete", new { id = item.Game_Copy_Id })
+                @* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
+					@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
+					@Html.ActionLink("Remove from library", "Delete", new { id = item.Game_Copy_Id })
             </td>
         </tr>
 }

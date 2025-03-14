@@ -13,12 +13,14 @@ namespace BLL.Services
 	{
 		//Service injection
 		private readonly IUserRepository<DAL.Entities.User> _userService;
-		private readonly ILibraryRepository<GameCopy> _libraryService;
+		private readonly ILibraryRepository<DAL.Entities.GameCopy> _libraryService;
+		private readonly IBoardgameRepository<DAL.Entities.Boardgame> _boardgameService;
 
-		public UserService(IUserRepository<DAL.Entities.User> userService, ILibraryRepository<GameCopy> libraryService)
+		public UserService(IUserRepository<DAL.Entities.User> userService, ILibraryRepository<DAL.Entities.GameCopy> libraryService, IBoardgameRepository<DAL.Entities.Boardgame> boardgameService)
 		{
 			_userService = userService;
 			_libraryService = libraryService;
+			_boardgameService = boardgameService;
 		}
 
 		//Methods
@@ -31,7 +33,14 @@ namespace BLL.Services
 		public User GetById(Guid id)
 		{
 			User user = _userService.GetById(id).ToBll();
-			IEnumerable<GameCopy> library = _libraryService.GetByUserId(id);
+			List<GameCopy> library = _libraryService.GetByUserId(id).Select(dal=>dal.ToBLL()).ToList();
+
+			foreach(GameCopy gameCopy in library)
+			{
+				Boardgame game = _boardgameService.GetById(gameCopy.Game_Id).ToBLL();
+				gameCopy.SetTitle(game);
+				gameCopy.SetOwner(user);			
+			}
 			user.AddGameCopies(library);
 
 			return user;

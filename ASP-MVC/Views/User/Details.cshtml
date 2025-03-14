@@ -5,10 +5,20 @@
 }
 
 <h1>@Model.Pseudo 's space</h1>
+<div>
+	@if (sessionManager.ConnectedUser != null && (sessionManager.ConnectedUser.User_Id == Model.User_Id))
+	{
+
+		<span>@Html.ActionLink("Edit", "Edit", new { id = Model.User_Id }) |</span>
+	}
+	<a asp-action="Index">Back to Users</a> |
+	<a asp-action="Unsubscribe" asp-controller="User" asp-route-id="@Model.User_Id">Unsubscribe</a>
+
+</div>
+	<hr />
 
 <div>
 	
-	<hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Pseudo)
@@ -24,14 +34,7 @@
         </dd>
     </dl>
 </div>
-<div>
-	@if(sessionManager.ConnectedUser != null &&(sessionManager.ConnectedUser.User_Id == Model.User_Id)){
 
-		<span>@Html.ActionLink("Edit", "Edit", new { id = Model.User_Id }) |</span>
-	}
-	<a asp-action="Index">Back to List</a> |
-	<a asp-action="Unsubscribe" asp-controller="User" asp-route-id="@Model.User_Id">Unsubscribe</a>
-    
-</div>
+<hr />
 
 <partial name ="_MyLibrary" model ="Model.Library"/>

@@ -55,6 +55,8 @@ namespace ASP_MVC.Mappers
 				Game_Id = gameCopy.Game_Id,
 				User_Id = gameCopy.User_Id,
 				State = gameCopy.State.ToString(),
+				Game_Title = gameCopy.Game_Title,
+				Owner = gameCopy.Owner
 			};
 		}
 
