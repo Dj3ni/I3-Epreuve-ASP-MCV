@@ -28,7 +28,7 @@
                         @* </li> *@
                         
 						<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Boardgame" asp-action="Index">Games</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Boardgame" asp-action="Index">All Games</a>
                         </li>
                         @if (sessionManager.ConnectedUser is null)
                         {
@@ -42,7 +42,7 @@
 						else
 						{
 							<li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+								<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Gamers</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@sessionManager.ConnectedUser.User_Id">My profile</a>
