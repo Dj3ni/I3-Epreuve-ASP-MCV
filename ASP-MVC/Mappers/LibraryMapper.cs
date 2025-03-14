@@ -28,14 +28,33 @@ namespace ASP_MVC.Mappers
 		/// <param name="game"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
-		public static GameCopyCreate ToCreate(this GameCopy game)
+		//public static GameCopyCreate ToCreate(this GameCopy game)
+		//{
+		//	if (game is null) throw new ArgumentNullException(nameof(game));
+		//	return new GameCopyCreate()
+		//	{
+		//		Game_Id = game.Game_Id,
+		//		User_Id = game.User_Id,
+		//		State = game.State.ToString(),
+		//	};
+		//}
+
+
+		/// <summary>
+		/// Convert BLL GameCopy to GamecopyListItem
+		/// </summary>
+		/// <param name="game">BLL GameCopy</param>
+		/// <returns>GamecopyListItem</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public static GameCopyListItem ToListItem(this GameCopy gameCopy)
 		{
-			if (game is null) throw new ArgumentNullException(nameof(game));
-			return new GameCopyCreate()
+			if(gameCopy is null) throw new ArgumentNullException( nameof(gameCopy));
+			return new GameCopyListItem()
 			{
-				Game_Id = game.Game_Id,
-				User_Id = game.User_Id,
-				State = game.State.ToString(),
+				Game_Copy_Id = gameCopy.Game_Id,
+				Game_Id = gameCopy.Game_Id,
+				User_Id = gameCopy.User_Id,
+				State = gameCopy.State.ToString(),
 			};
 		}
 

@@ -8,11 +8,15 @@ namespace ASP_MVC.Models.Library
 		[ScaffoldColumn(false)]
 		public int Game_Copy_Id { get; set; }
 
-		[DisplayName("Game")]
+		public Guid User_Id { get; set; }
 		public int Game_Id { get; set; }
 
+		[DisplayName("Game")]
+		public string Game_Title { get; set; }
+
+
 		[DisplayName("Owner")]
-		public Guid User_Id { get; set; }
+		public string Pseudo { get; set; }
 
 		public string State { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using ASP_MVC.Models.Library;
 
 namespace ASP_MVC.Models.User
 {
@@ -13,6 +14,8 @@ namespace ASP_MVC.Models.User
 
 		[DisplayName("Email")]
 		public string Email { get; set; }
+
+		public IEnumerable<GameCopyListItem>? Library { get; set; }
 
 	}
 }

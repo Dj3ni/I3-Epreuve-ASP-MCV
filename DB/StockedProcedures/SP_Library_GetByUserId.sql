@@ -4,11 +4,11 @@ AS
 Begin
 	Select
 	[Game_Copy_Id],
-	[State]
-	[Game_Id]
+	[State],
+	[Game_Id],
+	[User_Id]
 
 	FROM [Library]
 
 	Where [User_Id] = @user_id
-
 End

@@ -127,5 +127,11 @@ namespace ASP_MVC.Controllers
 				return View();
 			}
 		}
+
+		//public ActionResult MyLibrary(Guid id)
+		//{
+		//	IEnumerable<GameCopyListItem> model = _libraryService.GetByUserId(id).Select(bll => bll.ToListItem());
+		//	return View(model);
+		//}
 	}
 }

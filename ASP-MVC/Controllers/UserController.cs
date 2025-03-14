@@ -15,10 +15,12 @@ namespace ASP_MVC.Controllers
 		private readonly IUserRepository<User> _userService;
 		private readonly SessionManager _sessionManager;
 
+
 		public UserController(IUserRepository<User> userService, SessionManager sessionManager)
 		{
 			_userService = userService;
 			_sessionManager = sessionManager;
+
 		}
 
 
@@ -34,6 +36,8 @@ namespace ASP_MVC.Controllers
 		public ActionResult Details(Guid id)
 		{
 			UserDetails model = _userService.GetById(id).ToDetails();
+			
+
 			return View(model);
 		}
 

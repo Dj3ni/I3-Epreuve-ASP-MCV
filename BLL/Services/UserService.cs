@@ -13,14 +13,16 @@ namespace BLL.Services
 	{
 		//Service injection
 		private readonly IUserRepository<DAL.Entities.User> _userService;
+		private readonly ILibraryRepository<GameCopy> _libraryService;
 
-		public UserService(IUserRepository<DAL.Entities.User> userService)
+		public UserService(IUserRepository<DAL.Entities.User> userService, ILibraryRepository<GameCopy> libraryService)
 		{
 			_userService = userService;
+			_libraryService = libraryService;
 		}
 
 		//Methods
-		
+
 		public IEnumerable<User> GetAll()
 		{
 			return _userService.GetAll().Select(dal=>dal.ToBll());
@@ -28,7 +30,11 @@ namespace BLL.Services
 
 		public User GetById(Guid id)
 		{
-			return _userService.GetById(id).ToBll();
+			User user = _userService.GetById(id).ToBll();
+			IEnumerable<GameCopy> library = _libraryService.GetByUserId(id);
+			user.AddGameCopies(library);
+
+			return user;
 		}
 
 		public Guid Insert(User user)

@@ -35,6 +35,7 @@ namespace ASP_MVC.Mappers
 				User_Id = user.User_Id,
 				Pseudo = user.Pseudo,
 				Email = user.Email,
+				Library = (user.Library is null)? null : user.Library.Select(g=>g.ToListItem()),
 			};
 		}
 

@@ -67,7 +67,7 @@ namespace DAL.Mappers
 				Game_Copy_Id = (int)record[nameof(GameCopy.Game_Copy_Id)],
 				Game_Id = (int)record[nameof(GameCopy.Game_Id)],
 				User_Id = (Guid)record[nameof(GameCopy.User_Id)],
-				State = (string)record[nameof(GameCopy.State)],
+				State = (string)record[nameof(GameCopy.State)]
 			};
 		}
 	}
