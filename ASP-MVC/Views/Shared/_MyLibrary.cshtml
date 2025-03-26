@@ -37,33 +37,36 @@ else{
 		<tbody>
 			@foreach (var item in Model)
 			{
-				<tr>
-					@* <td> *@
-					@*     @Html.DisplayFor(modelItem => item.Game_Id) *@
-					@* </td> *@
-					@* for debug <td> *@
-					@*     @Html.DisplayFor(modelItem => item.User_Id) *@
-					@* </td> *@
+				if(item.IsRemoved == false){
+					<tr>
+						@* <td> *@
+						@*     @Html.DisplayFor(modelItem => item.Game_Id) *@
+						@* </td> *@
+						@* for debug <td> *@
+						@*     @Html.DisplayFor(modelItem => item.User_Id) *@
+						@* </td> *@
 
-					<td>
-						@Html.DisplayFor(modelItem => item.Game_Title)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.State)
-					</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Game_Title)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.State)
+						</td>
 
-				@if(sessionManager.ConnectedUser.User_Id == item.User_Id){
-					@* Still to implement: *@
-					<td>
-						@* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
-						@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
+					@if(sessionManager.ConnectedUser.User_Id == item.User_Id){
+						@* Still to implement: *@
+						<td>
+							@* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
+							@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
 
-						@* Plus check with attribute for change and Url*@
-						@Html.ActionLink("Remove from library", "Delete","Library", new { id = item.Game_Copy_Id })
+							@* Plus check with attribute for change and Url*@
+							@Html.ActionLink("Remove from library", "Delete","Library", new { id =
+								item.Game_Copy_Id })
 
-					</td>
+						</td>
+					}
+					</tr>
 				}
-				</tr>
 			}
 		</tbody>
 	</table>

@@ -12,5 +12,6 @@ namespace DAL.Entities
 		public int Game_Id { get; set; }
 		public Guid User_Id { get; set; }
 		public string State { get; set; } // with int, better(less memory) but we need to parse between DAL and BLL, no time
+		public bool IsRemoved { get; set; }
 	}
 }

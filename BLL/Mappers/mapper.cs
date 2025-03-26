@@ -104,7 +104,8 @@ namespace BLL.Mappers
 					game.Game_Copy_Id,
 					game.Game_Id,
 					game.User_Id,
-					game.State
+					game.State,
+					game.IsRemoved
 				);
 		}
 

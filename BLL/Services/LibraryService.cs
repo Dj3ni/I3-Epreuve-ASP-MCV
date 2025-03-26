@@ -45,34 +45,13 @@ namespace BLL.Services
 			gameCopy.SetOwner(owner);
 			gameCopy.SetTitle(boardgame);
 
-			//foreach(GameCopy game in owner.Library)
-			//{
-			//	game.SetTitle(boardgame);
-			//	game.SetOwner(owner);
-			//}
-
 			return gameCopy;
 		}
 
 		public IEnumerable<GameCopy> GetByUserId(Guid user_id)
 		{
-			//IEnumerable<GameCopy> library = 
-
-
-			//foreach (GameCopy gameCopy in library)
-			//{
-				
-			//}
-
-			//foreach(GameCopy gameCopy in library.ToList())
-			//{
-			//	User user = _userService.GetById(user_id).ToBll();
-			//	Boardgame game = _boardgameService.GetById(gameCopy.Game_Id).ToBLL();
-
-			//	gameCopy.Owner = user.Pseudo;
-			//	gameCopy.Game_Title = game.Game_Title;				
-			//}
-
+			// test isRemoved
+			//return _libraryService.GetByUserId(user_id).Where(g=>g.IsRemoved != true).Select(dal => dal.ToBLL());
 			return _libraryService.GetByUserId(user_id).Select(dal => dal.ToBLL());
 		}
 

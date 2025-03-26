@@ -20,5 +20,7 @@ namespace ASP_MVC.Models.Library
 
 		public string State { get; set; }
 
+		public bool IsRemoved { get; set; }
+
 	}
 }

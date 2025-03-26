@@ -18,8 +18,10 @@ namespace ASP_MVC.Mappers
 				0,
 				form.Game_Id,
 				form.User_Id,
-				form.State
+				form.State,
+				false
 			);
+
 		}
 
 		/// <summary>
@@ -33,12 +35,13 @@ namespace ASP_MVC.Mappers
 			if(gameCopy is null) throw new ArgumentNullException( nameof(gameCopy));
 			return new GameCopyListItem()
 			{
-				Game_Copy_Id = gameCopy.Game_Id,
+				Game_Copy_Id = gameCopy.Game_Copy_Id,
 				Game_Id = gameCopy.Game_Id,
 				User_Id = gameCopy.User_Id,
 				State = gameCopy.State.ToString(),
 				Game_Title = gameCopy.Game_Title,
-				Owner = gameCopy.Owner
+				Owner = gameCopy.Owner,
+				IsRemoved = gameCopy.IsRemoved,
 			};
 		}
 

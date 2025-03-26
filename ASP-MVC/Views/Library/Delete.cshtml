@@ -24,7 +24,7 @@
     </dl>
     
     <form asp-action="Delete">
-        @* <input type="submit" value="Yes, Remove it!" class="btn btn-danger" /> | *@
+        <input type="submit" value="Yes, Remove it!" class="btn btn-danger" /> |
         <button class="btn btn-secondary">
 			<a asp-action="Details" asp-controller="User" asp-route-id ="@sessionManager.ConnectedUser.User_Id">No, wrong move!</a>
 		</button>

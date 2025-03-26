@@ -125,7 +125,7 @@ namespace ASP_MVC.Controllers
 		{
 			try
 			{
-				//Problem Fkey reference
+				//Problem Fkey reference 
 				_libraryService.Delete(id);
 				Guid user_id = _sessionManager.ConnectedUser.User_Id;
 				return RedirectToAction("Details", "User", new {id = user_id});

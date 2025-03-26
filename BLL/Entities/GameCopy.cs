@@ -21,14 +21,16 @@ namespace BLL.Entities
 		public StateEnum State { get; set; }
 		public string Owner { get; set; }
 		public string Game_Title { get; set;}
+		public bool IsRemoved { get; set; }
 
-		public GameCopy(int game_Copy_Id, int game_Id, Guid user_Id, string state)
+		public GameCopy(int game_Copy_Id, int game_Id, Guid user_Id, string state, bool isRemoved)
 		{
 			Game_Copy_Id = game_Copy_Id;
 			Game_Id = game_Id;
 			User_Id = user_Id;
 			//State = state;
 			State = Enum.Parse<StateEnum>(state);
+			IsRemoved = isRemoved;
 		}
 
 		/// <summary>
