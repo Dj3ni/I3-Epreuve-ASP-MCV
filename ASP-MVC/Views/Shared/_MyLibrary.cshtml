@@ -56,7 +56,7 @@ else{
 					@if(sessionManager.ConnectedUser.User_Id == item.User_Id){
 						@* Still to implement: *@
 						<td>
-							@* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
+							@Html.ActionLink("Edit", "Edit", "Library", new { id=item.Game_Copy_Id }) |
 							@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
 
 							@* Plus check with attribute for change and Url*@

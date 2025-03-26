@@ -1,0 +1,42 @@
+﻿@model ASP_MVC.Models.Library.GameCopyUpdate
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Game_Title</h1>
+<div>
+	<a asp-action="Details" asp-controller="User" asp-route-id="@sessionManager.ConnectedUser.User_Id">Back to List</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			@Html.HiddenFor(m=>m.User_Id)
+			@Html.HiddenFor(m=>m.Game_Id)
+			@Html.HiddenFor(m=>m.Game_Copy_Id)
+			@Html.HiddenFor(m=>m.States)
+			@Html.HiddenFor(m=>m.Game_Title)
+			
+			<p>Actual State for this game : @Model.State</p>
+			<div class="form-group">
+				<label asp-for="State" class="control-label"></label>
+				<select asp-for="State"
+						asp-items="Model.States"
+						class="form-control"></select>
+
+				<span asp-validation-for="State" class="text-danger"></span>
+			</div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

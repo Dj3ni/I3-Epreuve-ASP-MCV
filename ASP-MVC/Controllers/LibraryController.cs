@@ -7,6 +7,7 @@ using Common.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Mono.TextTemplating;
 using System.Reflection;
 
 namespace ASP_MVC.Controllers
@@ -90,18 +91,30 @@ namespace ASP_MVC.Controllers
 		[ConnectionNeeded] // + check owner
 		public ActionResult Edit(int id)
 		{
-			return View();
+			GameCopyUpdate model = _libraryService.GetById(id).ToEdit();
+			model.States = Enum.GetValues<StateEnum>()
+							.Select(e => new SelectListItem
+							{
+								Value = e.ToString(),
+								Text = e.ToString()
+							})
+							.ToList();
+			return View(model);
 		}
 
 		// POST: LibraryController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ConnectionNeeded] // + check owner
-		public ActionResult Edit(int id, IFormCollection collection)
+		public ActionResult Edit(int id, GameCopyUpdate form)
 		{
 			try
 			{
-				return RedirectToAction(nameof(Index));
+				if (!Enum.IsDefined(typeof(StateEnum), form.State)) ModelState.AddModelError("State", "State chosen not valid");
+				if (!ModelState.IsValid) throw new ArgumentException(nameof(form));
+				_libraryService.Update(id, form.ToBLL());
+
+				return RedirectToAction("Details","User",new {id = _sessionManager.ConnectedUser.User_Id});
 			}
 			catch
 			{
