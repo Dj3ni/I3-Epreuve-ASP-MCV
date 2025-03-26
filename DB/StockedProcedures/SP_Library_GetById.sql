@@ -6,7 +6,8 @@ Begin
 		[Game_Copy_Id],
 		[State],
 		[Game_Id],
-		[User_Id]
+		[User_Id],
+		[IsRemoved]
 
 	From [Library]
 

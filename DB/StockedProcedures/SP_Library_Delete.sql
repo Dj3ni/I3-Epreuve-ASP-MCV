@@ -2,6 +2,7 @@
 	@game_copy_id int
 AS
 Begin
-	Delete from [Library]
+	Update [Library]
+	Set [IsRemoved] = 1
 	Where [Game_Copy_Id] = @game_copy_id
 End

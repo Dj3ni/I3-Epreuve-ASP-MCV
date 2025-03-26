@@ -4,8 +4,9 @@ AS
 Begin
 	Select
 	[Game_Copy_Id],
-	[State]
-	[user_id]
+	[State],
+	[user_id],
+	[IsRemoved]
 
 	FROM [Library]
 

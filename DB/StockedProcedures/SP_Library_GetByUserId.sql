@@ -6,9 +6,11 @@ Begin
 	[Game_Copy_Id],
 	[State],
 	[Game_Id],
-	[User_Id]
+	[User_Id],
+	[IsRemoved]
 
 	FROM [Library]
 
 	Where [User_Id] = @user_id
+	--And [IsRemoved] = 0
 End

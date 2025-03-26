@@ -6,9 +6,9 @@ AS
 Begin
 
 Update [Library]
-		SET 
-		[State] = @state
+	SET 
+	[State] = @state
 
-		Where [Game_Copy_Id] = @game_copy_id
+	Where [Game_Copy_Id] = @game_copy_id
 
 End
