@@ -47,20 +47,25 @@ namespace ASP_MVC.Controllers
 
 				//2. Init session: 
 				User user = _userService.GetById(id);
-				ConnectedUser sessionUser = new ConnectedUser()
-				{
-					User_Id = user.User_Id,
-					Pseudo = user.Pseudo,
-					Email = user.Email,
-					ConnectedAt = DateTime.Now,
-				};
+				if (user.Deactivation_Date is not null) {
+					ModelState.AddModelError("","Your account was deactivated and can't be used again");
+					return View(form);
+				}
+					ConnectedUser sessionUser = new ConnectedUser()
+					{
+						User_Id = user.User_Id,
+						Pseudo = user.Pseudo,
+						Email = user.Email,
+						ConnectedAt = DateTime.Now,
+					};
 
-				//3. Login
-				_sessionManager.Login(sessionUser);
+					//3. Login
+					_sessionManager.Login(sessionUser);
 
-				//4. Redirect
-				return RedirectToAction("Index", "Home");
-				//return RedirectToAction("Details", "User", new {id});
+					//4. Redirect
+					return RedirectToAction("Index", "Home");
+						//return RedirectToAction("Details", "User", new {id});
+				
 
 			}
 			catch (Exception)
