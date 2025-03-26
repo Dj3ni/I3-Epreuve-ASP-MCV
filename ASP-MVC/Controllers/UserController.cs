@@ -125,7 +125,8 @@ namespace ASP_MVC.Controllers
 			try
 			{
 				_userService.Update(id, form.ToBLL());
-				return RedirectToAction(nameof(Index));
+				_sessionManager.Logout();
+				return RedirectToAction(nameof(Index), "Home");
 			}
 			catch
 			{
