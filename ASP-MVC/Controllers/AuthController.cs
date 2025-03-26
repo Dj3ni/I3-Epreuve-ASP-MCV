@@ -30,6 +30,7 @@ namespace ASP_MVC.Controllers
 		[AnonymousNeeded]
 		public IActionResult Login()
 		{
+			ViewBag.RedirectMessage = TempData["RedirectMessage"];
 			return View();
 		}
 
@@ -63,8 +64,16 @@ namespace ASP_MVC.Controllers
 					_sessionManager.Login(sessionUser);
 
 					//4. Redirect
-					return RedirectToAction("Index", "Home");
-						//return RedirectToAction("Details", "User", new {id});
+						//Si url stockée
+						string? returnUrl = HttpContext.Session.GetString("ReturnUrl");
+						if (!string.IsNullOrEmpty(returnUrl))
+						{
+							HttpContext.Session.Remove("ReturnUrl"); // Supprime l'URL de la session
+							return Redirect(returnUrl); // Redirige vers la page initialement demandée
+						}
+						//Default
+						return RedirectToAction("Index", "Home");
+							//return RedirectToAction("Details", "User", new {id});
 				
 
 			}

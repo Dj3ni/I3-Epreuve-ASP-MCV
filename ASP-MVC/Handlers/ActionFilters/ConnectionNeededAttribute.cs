@@ -1,6 +1,7 @@
 ﻿using ASP_MVC.Handlers.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ASP_MVC.Handlers.ActionFilters
 {
@@ -11,8 +12,14 @@ namespace ASP_MVC.Handlers.ActionFilters
 		private string _controller;
 		private bool _getRouteValue;
 
+		// Injecte TempData
+		private readonly ITempDataDictionaryFactory _tempDataFactory;
+
 		//Constructor
-		public ConnectionNeededAttribute() : this("Login", "Auth") { }
+		public ConnectionNeededAttribute() : this("Login", "Auth")
+		{
+			//_tempDataFactory = tempDataFactory;
+		}
 		public ConnectionNeededAttribute(string action, string controller, bool getRouteValue = false)
 		{
 			_action = action;
@@ -26,6 +33,13 @@ namespace ASP_MVC.Handlers.ActionFilters
 			//Si user non connecté
 			if (context.HttpContext.Session.GetString(nameof(SessionManager.ConnectedUser)) is null)
 			{
+				// Récupérer l'URL demandée avant redirection et la stocker dans la session
+				string? returnUrl = context.HttpContext.Request.Path + context.HttpContext.Request.QueryString;
+				context.HttpContext.Session.SetString("ReturnUrl", returnUrl);
+
+				//_tempDataFactory.GetTempData(context.HttpContext)["RedirectMessage"] = "You need to be connected to view this page.";
+
+
 				object? routeValue = null;
 				//Si route à paramètres
 				if (_getRouteValue)

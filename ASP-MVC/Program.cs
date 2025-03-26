@@ -1,5 +1,6 @@
 using ASP_MVC.Handlers.Managers;
 using Common.Repositories;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ASP_MVC
 {
@@ -44,9 +45,12 @@ namespace ASP_MVC
 
 				//SessionManager
 				builder.Services.AddScoped<SessionManager>();
+				//Injection Tempdata
+				//builder.Services.AddSingleton<ITempDataDictionaryFactory, TempDataDictionaryFactory>();
 
-				//User
-				builder.Services.AddScoped<IUserRepository<DAL.Entities.User>,DAL.Services.UserService>();
+
+			//User
+			builder.Services.AddScoped<IUserRepository<DAL.Entities.User>,DAL.Services.UserService>();
 				builder.Services.AddScoped<IUserRepository<BLL.Entities.User>,BLL.Services.UserService>();
 			
 				//Boardgame
