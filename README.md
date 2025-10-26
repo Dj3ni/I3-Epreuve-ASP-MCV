@@ -1,35 +1,75 @@
-# Context
-This project takes part in the evaluation of what we learned and understood about our .Net lessons. It'sa conclusion of a 5 month lessons where we learned to create and secure a website from the DB to the user interface using SqlServer / Ado.Net, Asp.Net (MVC) , Session Manager, and building DAL and BLL manually
+# 🎲 BoardGame Library Web App
+## Overview / Context
+This project is part of the final evaluation of our .NET training program.
+It concludes five months of lessons during which we learned how to create and secure a full web application — from the database to the user interface — using SQL Server, ADO.NET, ASP.NET (MVC), a Session Manager, and by manually building the DAL and BLL layers.
 
 ## The project
-We had 4 days to build a web a webapp allowing users to own, lean and return boardgames. (like myLudo). The boardgames had to have tags to facilitate the sorting when searching for them.
+We had four days to build a web application allowing users to own, lend, and return board games, similar to [MyLudo](https://www.myludo.fr).
+Each board game had to include tags to make searching and sorting easier.
 
-## Auto Evaluation 
-I'v felt a lot of frustration concerning the deadline, I've seen just by reading the instructions that I won't be able to deliver all the points asked in the allocated time.
-My strategy: showing that I understood the content of our lessons and showing it through this test. I chose to not implement everything but what is implemented had to be near perfection. and without bugs.
-- I implemented the User and Boardgame Library frm DB to UI
-- I secured the login and logout and routing through the Session Manager
-- I personnalised validators for the routing and subscription
+## Self Evaluation 
+I felt a lot of frustration regarding the short deadline: I knew, just by reading the instructions, that it would be impossible to deliver everything within the given time.
+So my strategy was to focus on **quality over quantity**, and to demonstrate that I truly understood the lessons we were taught.
+I preferred not to implement every feature, but everything I did implement had to be **clean, well-structured, and bug-free**.
+
+Key points I implemented:
+- Full implementation of the User and BoardGame libraries, from DB to UI
+- Secure authentication and routing using the Session Manager
+- Custom validators for routing and registration
 
 ## Teacher's collegue feedback
-Our work was corrected and evaluated by a teacher's colleague to insure objective feedback on the work given. 
-The evaluator said he was impressed by the quality of the work given in the such short schedule, and that my frustration was normal because they purposely gave too much work to do, to see how we would react to the pressure and the strategies we implemented. 
-I apparently choose a good strategy and he really liked my little personnalisations I put in the projects that were not asked but showed that I enjoyed doing it and really understood the lessons. 
-To have a perfect project:
-  - some try catch were missing but nothing with too much impact,
-  - a little bug in my cookie policy (the consent wasn't compulsory)
-  - a little bug on the soft delete I implemented in the last minutes of the examination.
-I felt really proud when he said I gave a junior ++ work, a quality from one of his own junior collegue can give. 
+Our work was reviewed by one of the teachers’ colleagues to ensure objective evaluation.
+He mentioned being impressed by the overall quality of my project, especially given the tight schedule.
+He also explained that the large scope was intentional, to evaluate how we handled stress and time constraints.
 
-## Push the project further
-- Being able to add friends and their libraries in my account
-- Transmission of the URL when redirection to login etc to improve UX
-- Give the user the possibility to login via mail or pseudo
-- Insert profile picture
-- If login and isn't known, redirect to register pag
-- If user want to create an account but the identifiers are linked to a deactivated account, ask the user if he wants to reactivate his account
-- Check owner for the addInLibrary route
-- Filter only the active games in the list
-- Update state of the game
+Apparently, I chose a good strategy. He appreciated the personal touches I added, which were not required but showed that I both enjoyed the project and understood the concepts deeply.
+
+To reach a perfect project, he mentioned:
+- Some missing try/catch blocks (minor impact)
+- A small bug in my cookie policy (consent not mandatory)
+- A last-minute bug in the soft delete feature
+
+He told me I delivered a “junior++” level project, comparable to the work of one of his own junior colleagues.
+That feedback made me feel really proud.
+
+## What I've learned from this experience
+- Managing my perfectionism while still delivering quality work
+- Managing stress and time pressure effectively
+- Building realistic strategies that balance technical quality and user experience
+
+## What I want to implement to push the project further
+- Add friends and allow users to view each other's libraries
+- Keep the previous URL when redirecting to login (improve UX)
+- Allow login via email or username
+- Add profile pictures
+- Redirect unknown users to the registration page
+- Handle reactivation of deactivated accounts when re-registering
+- Check ownership in the addToLibrary route
+- Display only active games in lists
+- Add the ability to update the game’s state
+- finish all the features
+
+## Tech Stach
+
+| Layer            | Technology                         |
+| ---------------- | ---------------------------------- |
+| **Frontend**     | ASP.NET MVC, Razor, HTML/CSS       |
+| **Backend**      | C#, ADO.NET                        |
+| **Database**     | SQL Server                         |
+| **Architecture** | MVC + custom DAL/BLL               |
+| **Security**     | Session Manager, custom validators |
+
+## Installation and run
+``` bash
+# 1️⃣ Clone the repository
+git clone https://github.com/your-username/BoardGameLibrary.git
+
+# 2️⃣ Open in Visual Studio
+# 3️⃣ Update connection string in appsettings.json
+# 4️⃣ Run the project (F5)
+
+
+```
+
 
 
